@@ -12,14 +12,13 @@ public class LoginPage extends BasePage {
   //  if(driver.getCurrentUrl().equals("https://gittigidiyor.com"));
 
     public LoginPage check(){
-        AssertJUnit.assertEquals("https://www.gittigidiyor.com/",
-                driver.getCurrentUrl());
+        assertionUrl("https://www.gittigidiyor.com/");
         return this;
     }
 
     public  LoginPage hover(){
 
-        hoverElement((By) findElement(By.className("gekhq4-5 grTfZj")));
+        hoverElement(By.className("gekhq4-5 grTfZj"));
         return this;
     }
     public  LoginPage login(){

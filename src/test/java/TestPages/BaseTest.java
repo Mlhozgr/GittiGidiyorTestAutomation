@@ -1,24 +1,33 @@
 package TestPages;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseTest {
+    static WebDriver webDriver=null;
     WebDriver driver;
-@BeforeAll
+    public static Logger logger = LogManager.getLogger(BaseTest.class);
+    @Before
     public void setUp(){
         System.setProperty("webdriver.chrome.driver",
                 "C:/Users/Monster/Selenium/ChromeDriver/chromedriver.exe");
+
+
         WebDriver driver = new ChromeDriver();
         driver.get("www.gittigidiyor.com");
+    logger.info("Driver başlatıldı");
         driver.manage().window().maximize();
 
     }
 
-@AfterAll
+@After
 public void tearDown(){
     driver.quit();
+    logger.info("Driver kapatıldı");
 }
 }

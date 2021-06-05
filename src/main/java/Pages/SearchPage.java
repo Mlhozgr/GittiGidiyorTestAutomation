@@ -10,12 +10,14 @@ public class SearchPage extends BasePage {
     }
 
     public SearchPage search(){
-        findElement(By.className("sc-4995aq-0 sc-14oyvky-0 gHqOYK"));
+        click(By.className("sc-4995aq-0 sc-14oyvky-0 gHqOYK"));
         sendKeys(By.className("sc-4995aq-0 sc-14oyvky-0 gHqOYK"),"bilgisayar");
+        click(By.className("qjixn8-0 sc-1bydi5r-0 hKfdXF"));
         return search();
     }
     public SearchPage nextPage(){
-        findElement(By.xpath("//a[@href='/arama/?k=bilgisayar&sf=2']")).click();
+        click(By.xpath("//a[@href='/arama/?k=bilgisayar&sf=2']"));
+        assertionUrl("https://www.gittigidiyor.com/arama/?k=bilgisayar&sf=2");
         //kontrolü nasıl olacak?
         return nextPage();
     }

@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.junit.jupiter.api.Assertions;
+import org.junit.Assert;
 
-import java.util.List;
+
 
 public class BasePage {
     WebDriver driver;
@@ -16,16 +16,13 @@ public class BasePage {
         this.driver=driver;
 
     }
-    public void scrollToElement(By by) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", findElement(by));
 
-    }
 
 
     public void click(By by){
         findElement(by).click();
     }
+
     public void sendKeys(By by, String text) {
         findElement(by).sendKeys(text);
 
@@ -39,8 +36,10 @@ public class BasePage {
     public WebElement findElement(By by) {
         return driver.findElement(by);
     }
+
     public void hoverElement(By by) {
         Actions act=new Actions(driver);
         act.moveToElement(findElement(by)).build().perform();
     }
+
 }
